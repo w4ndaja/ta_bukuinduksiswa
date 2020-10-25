@@ -10,7 +10,6 @@
     <!-- App css -->
     <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css" id="light-style" />
-    <link href="{{asset('assets/css/app-dark.min.css')}}" rel="stylesheet" type="text/css" id="dark-style" />
 
 </head>
 
@@ -21,21 +20,15 @@
         <div class="left-side-menu">
 
             <div class="h-100" id="left-side-menu-container" data-simplebar>
-
                 <!-- LOGO -->
                 <x-side-bar-logo></x-side-bar-logo>
-
                 <x-side-bar></x-side-bar>
                 <!-- End Sidebar -->
-
                 <div class="clearfix"></div>
-
             </div>
             <!-- Sidebar -left -->
-
         </div>
         <!-- Left Sidebar End -->
-
         <!-- ============================================================== -->
         <!-- Start Page Content here -->
         <!-- ============================================================== -->

@@ -95,7 +95,7 @@ class StudentController extends Controller
 
     public function report()
     {
-        return view('pages.students.table');
+        return view('pages.students.report');
     }
 
     /**

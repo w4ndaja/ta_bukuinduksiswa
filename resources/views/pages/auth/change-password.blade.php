@@ -18,6 +18,11 @@
                             <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Ganti Password</h4>
                         </div>
 
+                        <x-alert name="error" type="danger"></x-alert>
+                        <x-alert name="success" type="info">
+                            <a href="{{route('home')}}" class="btn btn-warning ml-1">Kembali</a>
+                        </x-alert>
+
                         <x-form :action="route('changepassword.confirm')" method="PATCH">
                             <div class="form-group mb-3">
                                 <label for="emailaddress">Password Lama</label>

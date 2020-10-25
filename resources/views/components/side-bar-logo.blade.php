@@ -1,4 +1,4 @@
-<a href="{{route('home')}}" class="logo text-center bg-info">
+<a href="{{route('home')}}" class="logo text-center">
     <span class="logo-lg">
         <img src="{{asset('assets/images/smp_logo.png')}}" alt="" height="48" id="side-main-logo"> <span class="text-white h5 mx-1">SMP TUNAS HARAPAN</span>
     </span>

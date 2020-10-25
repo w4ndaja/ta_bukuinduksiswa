@@ -13,7 +13,7 @@ Route::middleware('auth')->group(function(){
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::resource('students', StudentController::class);
-    Route::get('students/report', [StudentController::class, 'report'])->name('students.report');
+    Route::get('report/students', [StudentController::class, 'report'])->name('students.report');
 });
 
 Route::middleware('guest')->group(function(){

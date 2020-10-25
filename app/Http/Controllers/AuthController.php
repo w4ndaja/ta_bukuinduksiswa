@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Hash;
+
 
 class AuthController extends Controller
 {
@@ -46,5 +47,12 @@ class AuthController extends Controller
             'old_password' => 'required',
             'password' => 'required|confirmed',
         ]);
+        $user = Auth::user();
+        if(Hash::check(request()->old_password, $user->password)){
+            $user->update(['password' => bcrypt(request()->password)]);
+            return back()->with('success', 'Password berhasil diganti');
+        }else{
+            return back()->with('error', 'Password lama anda salah');
+        }
     }
 }

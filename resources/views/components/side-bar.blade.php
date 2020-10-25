@@ -2,7 +2,7 @@
 <ul class="metismenu side-nav">
 
     <li class="side-nav-item">
-        <a href="#" class="side-nav-link">
+        <a href="{{route('home')}}" class="side-nav-link">
             <i class="uil-home-alt"></i>
             {{-- <span class="badge badge-success float-right">4</span> --}}
             <span> Beranda </span>
