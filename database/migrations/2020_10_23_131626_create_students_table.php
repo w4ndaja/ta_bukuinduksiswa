@@ -45,8 +45,8 @@ class CreateStudentsTable extends Migration
             $table->string('hobi_siswa', 25);
             $table->string('alasankeluar_sekolah', 8);
             $table->date('tamat_belajar');
-            $table->string('no_ijazah', 12);
-            $table->string('no_skhu', 12);
+            $table->string('no_ijazah_sekarang', 12);
+            $table->string('no_skhu_sekarang', 12);
             $table->timestamps();
         });
     }
