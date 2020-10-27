@@ -54,14 +54,14 @@
         </a>
         <ul class="side-nav-second-level" aria-expanded="false">
             <li class="side-nav-item">
-                <a href="#" aria-expanded="false">Tabel Data Nilai </a>
+                <a href="{{route('lesson-values.index')}}" aria-expanded="false">Tabel Data Nilai </a>
             </li>
             <li class="side-nav-item">
-                <a href="#" aria-expanded="false">Tambah Nilai Baru </a>
+                <a href="{{route('lesson-values.create')}}" aria-expanded="false">Tambah Nilai Baru </a>
             </li>
-            <li class="side-nav-item">
+            {{-- <li class="side-nav-item">
                 <a href="#" aria-expanded="false">Laporan Data Nilai</a>
-            </li>
+            </li> --}}
         </ul>
     </li>
     <li class="side-nav-item">
@@ -72,14 +72,14 @@
         </a>
         <ul class="side-nav-second-level" aria-expanded="false">
             <li class="side-nav-item">
-                <a href="#" aria-expanded="false">Tabel Data Mapel </a>
+                <a href="{{route('subjects.index')}}" aria-expanded="false">Tabel Data Mapel </a>
             </li>
             <li class="side-nav-item">
-                <a href="#" aria-expanded="false">Tambah Mapel Baru </a>
+                <a href="{{route('subjects.create')}}" aria-expanded="false">Tambah Mapel Baru </a>
             </li>
-            <li class="side-nav-item">
+            {{-- <li class="side-nav-item">
                 <a href="#" aria-expanded="false">Laporan Data Mapel</a>
-            </li>
+            </li> --}}
         </ul>
     </li>
 

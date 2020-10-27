@@ -7,6 +7,24 @@ use Illuminate\Http\Request;
 
 class SubjectController extends Controller
 {
+
+    public function validateForm()
+    {
+        request()->validate([
+            'code' => 'required',
+            'name' => 'required',
+            'type' => 'required',
+        ]);
+    }
+
+    public function getForm()
+    {
+        return request()->only(
+            'code',
+            'name',
+            'type',
+        );
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +32,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+        $subjects = Subject::paginate(request('perpage') ?? 10);
+        return view('pages.subject.table', compact('subjects'));
     }
 
     /**
@@ -24,7 +43,8 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        //
+        $subject = new Subject;
+        return view('pages.subject.create', compact('subject'));
     }
 
     /**
@@ -35,7 +55,9 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateForm();
+        $subject = Subject::create($this->getForm());
+        return redirect(route('subjects.create'))->with('success', 'Mata Pelajaran berhasil ditambah');
     }
 
     /**
@@ -46,7 +68,7 @@ class SubjectController extends Controller
      */
     public function show(Subject $subject)
     {
-        //
+        return view('pages.subject.detail', compact('subject'));
     }
 
     /**
@@ -57,7 +79,7 @@ class SubjectController extends Controller
      */
     public function edit(Subject $subject)
     {
-        //
+        return view('pages.subject.edit', compact('subject'));
     }
 
     /**
@@ -69,7 +91,9 @@ class SubjectController extends Controller
      */
     public function update(Request $request, Subject $subject)
     {
-        //
+        $this->validateForm();
+        $subject->update($this->getForm());
+        return back()->with('success', 'Mata Pelajaran berhasil diperbaharui');
     }
 
     /**
@@ -80,6 +104,8 @@ class SubjectController extends Controller
      */
     public function destroy(Subject $subject)
     {
-        //
+        $success = redirect('subjects.index')->with('success', 'Mata Pelajaran dengan kode:' . $subject->code . ' berhasil dihapus dari database');
+        $subject->delete();
+        return $success;
     }
 }

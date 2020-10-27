@@ -115,7 +115,7 @@ class StudentController extends Controller
     {
         $this->validateForm();
         $student = Student::create($this->getForm());
-        return redirect(route('student.edit', $student->id))->with('success', 'Murid berhasil ditambah');
+        return redirect(route('students.create'))->with('success', 'Murid berhasil ditambah');
     }
 
     /**

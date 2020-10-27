@@ -81,7 +81,7 @@ class TeacherController extends Controller
     {
         $this->validateForm();
         $teacher = Teacher::create($this->getForm());
-        return redirect(route('teachers.edit', $teacher->id))->with('success', 'Guru berhasil ditambah');
+        return redirect(route('teachers.create'))->with('success', 'Guru berhasil ditambah');
     }
 
     /**

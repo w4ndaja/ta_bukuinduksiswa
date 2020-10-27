@@ -3,9 +3,10 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GradeController;
+use App\Http\Controllers\LessonValueController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
-use App\Models\Grade;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,7 +19,8 @@ Route::middleware('auth')->group(function(){
     Route::resource('students', StudentController::class);
     Route::resource('grades', GradeController::class);
     Route::resource('teachers', TeacherController::class);
-    Route::get('report/students', [StudentController::class, 'report'])->name('students.report');
+    Route::resource('lesson-values', LessonValueController::class);
+    Route::resource('subjects', SubjectController::class);
 });
 
 Route::middleware('guest')->group(function(){

@@ -59,7 +59,7 @@ class GradeController extends Controller
     {
         $this->validateForm();
         $grade = Grade::create($this->getForm());
-        return redirect(route('grades.edit', $grade->id))->with('success', 'Kelas berhasil ditambah');
+        return redirect(route('grades.create'))->with('success', 'Kelas berhasil ditambah');
     }
 
     /**

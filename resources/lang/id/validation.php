@@ -149,7 +149,7 @@ return [
     */
 
     'attributes' => [
-        'grade_id' => 'ID Kelas',
+        'grade_id' => 'Kelas',
         'nis' => 'nis',
         'name' => 'nama',
         'gender' => 'jenis kelamin',
@@ -183,7 +183,7 @@ return [
         'skhu_now_no' => 'no skhu sekarang',
         'code' => 'Kode',
         'parallel' => 'Paralel',
-        'form_teacher_id' => 'ID wali kelas',
+        'form_teacher_id' => 'wali kelas',
         'nuptk' => 'NUPTK',
         'nip' => 'NIP',
         'position' => 'Pangkat',
@@ -192,6 +192,11 @@ return [
         'education' => 'Pendidikan',
         'status' => 'status',
         'work_start_date' => 'Tanggal Mulai Kerja',
+        'school_year' => 'Tahun Ajaran',
+        'semester' => 'Semester',
+        'subject_id' => 'Mata Pelajaran',
+        'value' => 'Nilai',
+        'type' => 'Tipe',
     ],
 
 ];

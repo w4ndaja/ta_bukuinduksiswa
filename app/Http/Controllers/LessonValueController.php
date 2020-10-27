@@ -7,6 +7,30 @@ use Illuminate\Http\Request;
 
 class LessonValueController extends Controller
 {
+
+    public function validateForm()
+    {
+        request()->validate([
+            'school_year' => 'required',
+            'grade_id' => 'required',
+            'nis' => 'required',
+            'semester' => 'required',
+            'subject_id' => 'required',
+            'value' => 'required',
+        ]);
+    }
+
+    public function getForm()
+    {
+        return request()->only(
+            'school_year',
+            'grade_id',
+            'nis',
+            'semester',
+            'subject_id',
+            'value',
+        );
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +38,8 @@ class LessonValueController extends Controller
      */
     public function index()
     {
-        //
+        $lessonValues = LessonValue::paginate(request('perpage') ?? 10);
+        return view('pages.lesson-value.table', compact('lessonValues'));
     }
 
     /**
@@ -24,7 +49,8 @@ class LessonValueController extends Controller
      */
     public function create()
     {
-        //
+        $lessonValue = new LessonValue;
+        return view('pages.lesson-value.create', compact('lessonValue'));
     }
 
     /**
@@ -35,7 +61,9 @@ class LessonValueController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateForm();
+        $lessonValue = LessonValue::create($this->getForm());
+        return redirect(route('lesson-values.create'))->with('success', 'Nilai berhasil ditambah');
     }
 
     /**
@@ -46,7 +74,7 @@ class LessonValueController extends Controller
      */
     public function show(LessonValue $lessonValue)
     {
-        //
+        return view('pages.lesson-value.detail', compact('lessonValue'));
     }
 
     /**
@@ -57,7 +85,7 @@ class LessonValueController extends Controller
      */
     public function edit(LessonValue $lessonValue)
     {
-        //
+        return view('pages.lesson-value.edit', compact('lessonValue'));
     }
 
     /**
@@ -69,7 +97,9 @@ class LessonValueController extends Controller
      */
     public function update(Request $request, LessonValue $lessonValue)
     {
-        //
+        $this->validateForm();
+        $lessonValue->update($this->getForm());
+        return back()->with('success', 'Nilai berhasil diperbaharui');
     }
 
     /**
@@ -80,6 +110,8 @@ class LessonValueController extends Controller
      */
     public function destroy(LessonValue $lessonValue)
     {
-        //
+        $success = redirect('lessonValue.index')->with('success', 'Nilai dengan id:' . $lessonValue->id . ' berhasil dihapus dari database');
+        $lessonValue->delete();
+        return $success;
     }
 }
