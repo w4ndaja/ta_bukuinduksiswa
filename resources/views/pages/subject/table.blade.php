@@ -42,7 +42,7 @@
                                 <td class="text-nowrap">{{$subject->type}}</td>
                                 <td class="text-wrap position-sticy d-flex flex-row">
                                     <a href="{{route('subjects.edit', $subject->id)}}" class="btn btn-sm mr-1 btn-info">Edit</a>
-                                    <a href="{{route('subjects.edit', $subject->id)}}" class="btn btn-sm mr-1 btn-danger">Hapus</a>
+                                    <a href="{{route('subjects.confirm-delete', $subject->id)}}" class="btn btn-sm mr-1 btn-danger">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach

@@ -102,6 +102,13 @@ class LessonValueController extends Controller
         return back()->with('success', 'Nilai berhasil diperbaharui');
     }
 
+    public function confirmDelete(LessonValue $lessonValue)
+    {
+        $action = route('lesson-values.destroy', $lessonValue->id);
+        $message = "Apakah anda yakin ingin menghapus data nilai ".$lessonValue->id;
+        return view('partials.confirm-delete', compact('action', 'message'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -110,7 +117,7 @@ class LessonValueController extends Controller
      */
     public function destroy(LessonValue $lessonValue)
     {
-        $success = redirect('lessonValue.index')->with('success', 'Nilai dengan id:' . $lessonValue->id . ' berhasil dihapus dari database');
+        $success = redirect(route('lesson-values.index'))->with('success', 'Nilai dengan id:' . $lessonValue->id . ' berhasil dihapus dari database');
         $lessonValue->delete();
         return $success;
     }

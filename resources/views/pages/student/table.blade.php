@@ -22,7 +22,6 @@
                 <div>
                     <a href="{{route('students.create')}}" class="btn btn-primary">Tambah Siswa</a>
                 </div>
-                <a href="{{route('students.report')}}" class="btn btn-info">Laporan Siswa</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive shadow-sm">
@@ -66,7 +65,7 @@
                         <tbody>
                             @foreach($students as $key => $student)
                             <tr>
-                                <td class="text-nowrap">{{$student->grade->code}} - {{$student->grade->name}}</td>
+                                <td class="text-nowrap">{{$student->grade->code ?? ''}} - {{$student->grade->name ?? ''}}</td>
                                 <td class="text-nowrap">{{$student->nis}}</td>
                                 <td class="text-nowrap">{{$student->name}}</td>
                                 <td class="text-nowrap">{{$student->gender}}</td>
@@ -91,7 +90,7 @@
                                 <td class="text-nowrap">{{$student->ijazah_sd_no}}</td>
                                 <td class="text-nowrap">{{$student->skhu_no}}</td>
                                 <td class="text-nowrap">{{$student->move_from}}</td>
-                                <td class="text-nowrap">{{$student->receiveAtGrade->code}} - {{$student->receiveAtGrade->name}}</td>
+                                <td class="text-nowrap">{{$student->receiveAtGrade->code ?? ''}} - {{$student->receiveAtGrade->name ?? ''}}</td>
                                 <td class="text-nowrap">{{$student->date_received}}</td>
                                 <td class="text-nowrap">{{$student->hobby}}</td>
                                 <td class="text-nowrap">{{$student->leave_reason}}</td>
@@ -100,7 +99,7 @@
                                 <td class="text-nowrap">{{$student->skhu_now_no}}</td>
                                 <td class="text-nowrap d-flex flex-row">
                                     <a href="{{route('students.edit', $student->id)}}" class="btn btn-info ml-1 btn-sm">Edit</a>
-                                    <a href="{{route('students.edit', $student->id)}}" class="btn btn-danger ml-1 btn-sm">Hapus</a>
+                                    <a href="{{route('students.confirm-delete', $student->id)}}" class="btn btn-danger ml-1 btn-sm">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach

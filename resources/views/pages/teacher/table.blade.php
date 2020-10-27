@@ -66,7 +66,7 @@
                                 <td class="text-nowrap position-sticky">{{$teacher->work_start_date}}</td>
                                 <td class="text-nowrap position-sticky d-flex flex-row">
                                     <a href="{{route('teachers.edit', $teacher->id)}}" class="btn btn-sm mr-1 btn-info">Edit</a>
-                                    <a href="{{route('teachers.edit', $teacher->id)}}" class="btn btn-sm mr-1 btn-danger">Hapus</a>
+                                    <a href="{{route('teachers.confirm-delete', $teacher->id)}}" class="btn btn-sm mr-1 btn-danger">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach

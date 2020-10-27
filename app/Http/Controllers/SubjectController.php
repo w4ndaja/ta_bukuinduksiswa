@@ -96,6 +96,13 @@ class SubjectController extends Controller
         return back()->with('success', 'Mata Pelajaran berhasil diperbaharui');
     }
 
+    public function confirmDelete(Subject $subject)
+    {
+        $action = route('subjects.destroy', $subject->id);
+        $message = "Apakah anda yakin ingin menghapus data mata pelajaran ".$subject->code."-".$subject->name;
+        return view('partials.confirm-delete', compact('action', 'message'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -104,7 +111,7 @@ class SubjectController extends Controller
      */
     public function destroy(Subject $subject)
     {
-        $success = redirect('subjects.index')->with('success', 'Mata Pelajaran dengan kode:' . $subject->code . ' berhasil dihapus dari database');
+        $success = redirect(route('subjects.index'))->with('success', 'Mata Pelajaran dengan kode:' . $subject->code . ' berhasil dihapus dari database');
         $subject->delete();
         return $success;
     }

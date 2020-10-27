@@ -48,7 +48,7 @@
                                 <td class="text-nowrap">{{$lessonValue->value}}</td>
                                 <td class="text-nowrap position-sticky d-flex flex-row">
                                     <a href="{{route('lesson-values.edit', $lessonValue->id)}}" class="btn btn-sm mr-1 btn-info">Edit</a>
-                                    <a href="{{route('lesson-values.edit', $lessonValue->id)}}" class="btn btn-sm mr-1 btn-danger">Hapus</a>
+                                    <a href="{{route('lesson-values.confirm-delete', $lessonValue->id)}}" class="btn btn-sm mr-1 btn-danger">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach

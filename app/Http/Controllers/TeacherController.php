@@ -120,6 +120,13 @@ class TeacherController extends Controller
         return back()->with('success', 'Guru berhasil diperbaharui');
     }
 
+    public function confirmDelete(Teacher $teacher)
+    {
+        $action = route('teachers.destroy', $teacher->id);
+        $message = "Apakah anda yakin ingin menghapus data guru ".$teacher->nip."-".$teacher->name;
+        return view('partials.confirm-delete', compact('action', 'message'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -128,7 +135,7 @@ class TeacherController extends Controller
      */
     public function destroy(Teacher $teacher)
     {
-        $success = redirect('teachers.index')->with('success', 'Guru dengan nip:' . $teacher->nip . ' berhasil dihapus dari database');
+        $success = redirect(route('teachers.index'))->with('success', 'Guru dengan nip:' . $teacher->nip . ' berhasil dihapus dari database');
         $teacher->delete();
         return $success;
     }

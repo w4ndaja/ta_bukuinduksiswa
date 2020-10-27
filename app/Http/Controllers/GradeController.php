@@ -98,6 +98,13 @@ class GradeController extends Controller
         return back()->with('success', 'Kelas berhasil diperbaharui');
     }
 
+    public function confirmDelete(Grade $grade)
+    {
+        $action = route('grades.destroy', $grade->id);
+        $message = "Apakah anda yakin ingin menghapus data kelas ".$grade->code."-".$grade->name;
+        return view('partials.confirm-delete', compact('action', 'message'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -106,7 +113,7 @@ class GradeController extends Controller
      */
     public function destroy(Grade $grade)
     {
-        $success = redirect('grades.index')->with('success', 'Kelas dengan kode:' . $grade->code . ' berhasil dihapus dari database');
+        $success = redirect(route('grades.index'))->with('success', 'Kelas dengan kode:' . $grade->code . ' berhasil dihapus dari database');
         $grade->delete();
         return $success;
     }

@@ -154,6 +154,13 @@ class StudentController extends Controller
         return back()->with('success', 'Murid berhasil diperbaharui');
     }
 
+    public function confirmDelete(Student $student)
+    {
+        $action = route('students.destroy', $student->id);
+        $message = "Apakah anda yakin ingin menghapus data siswa ".$student->nis."-".$student->name;
+        return view('partials.confirm-delete', compact('action', 'message'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -162,7 +169,7 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        $success = redirect('student.index')->with('success', 'Murid dengan nis:'.$student->nis.' berhasil dihapus dari database');
+        $success = redirect(route('students.index'))->with('success', 'Murid dengan nis:'.$student->nis.' berhasil dihapus dari database');
         $student->delete();
         return $success;
     }

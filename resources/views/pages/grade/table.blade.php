@@ -46,7 +46,7 @@
                                 <td class="text-wrap position-sticy">{{$grade->form_teacher_id}}</td>
                                 <td class="text-wrap position-sticy d-flex flex-row">
                                     <a href="{{route('grades.edit', $grade->id)}}" class="btn btn-sm mr-1 btn-info">Edit</a>
-                                    <a href="{{route('grades.edit', $grade->id)}}" class="btn btn-sm mr-1 btn-danger">Hapus</a>
+                                    <a href="{{route('grades.confirm-delete', $grade->id)}}" class="btn btn-sm mr-1 btn-danger">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach
