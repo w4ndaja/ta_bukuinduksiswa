@@ -11,76 +11,76 @@ class StudentController extends Controller
     public function validateForm()
     {
         request()->validate([
-            'kelas' => 'required',
+            'grade_id' => 'required',
             'nis' => 'required',
-            'nama_siswa' => 'required',
-            'jenis_kelamin' => 'required',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required',
-            'agama' => 'required',
-            'kewarganegaraan' => 'required',
-            'anak_ke' => 'required',
-            'jml_sdr' => 'required',
-            'status_kel' => 'required',
-            'bhs' => 'required',
-            'alamat' => 'required',
-            'no_telepon_siswa' => 'required',
-            'tinggal_dengan' => 'required',
-            'jarak_tmpttinggal_drskh' => 'required',
-            'gol_darah' => 'required',
-            'penyakit_ygprnh_diderita' => 'required',
-            'tinggi_badan' => 'required',
-            'berat_badan' => 'required',
-            'lulusan_dari' => 'required',
-            'th_ijazah' => 'required',
-            'no_ijazah_sd' => 'required',
-            'no_skhu' => 'required',
-            'pindahan_dari' => 'required',
-            'diterima_dkls' => 'required',
-            'tgl_diterima' => 'required',
-            'hobi_siswa' => 'required',
-            'alasankeluar_sekolah' => 'required',
-            'tamat_belajar' => 'required',
-            'no_ijazah' => 'required',
-            'no_skhu' => 'required',
+            'name' => 'required',
+            'gender' => 'required',
+            'birth_place' => 'required',
+            'birth_date' => 'required',
+            'religion' => 'required',
+            'citizenship' => 'required',
+            'fam_order' => 'required',
+            'fam_count' => 'required',
+            'fam_status' => 'required',
+            'language' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'live_with' => 'required',
+            'residence_distance' => 'required',
+            'blood_type' => 'required',
+            'sick_history' => 'required',
+            'height' => 'required',
+            'weight' => 'required',
+            'graduate_from' => 'required',
+            'ijazah_year' => 'required',
+            'ijazah_sd_no' => 'required',
+            'skhu_no' => 'required',
+            'move_from' => 'required',
+            'receive_at_grade_id' => 'required',
+            'date_received' => 'required',
+            'hobby' => 'required',
+            'leave_reason' => 'required',
+            'finished_studying_at' => 'required',
+            'ijazah_now_no' => 'required',
+            'skhu_now_no' => 'required',
         ]);
     }
 
     public function getForm()
     {
         return request()->only(
-            'kelas',
+            'grade_id',
             'nis',
-            'nama_siswa',
-            'jenis_kelamin',
-            'tempat_lahir',
-            'tanggal_lahir',
-            'agama',
-            'kewarganegaraan',
-            'anak_ke',
-            'jml_sdr',
-            'status_kel',
-            'bhs',
-            'alamat',
-            'no_telepon_siswa',
-            'tinggal_dengan',
-            'jarak_tmpttinggal_drskh',
-            'gol_darah',
-            'penyakit_ygprnh_diderita',
-            'tinggi_badan',
-            'berat_badan',
-            'lulusan_dari',
-            'th_ijazah',
-            'no_ijazah_sd',
-            'no_skhu',
-            'pindahan_dari',
-            'diterima_dkls',
-            'tgl_diterima',
-            'hobi_siswa',
-            'alasankeluar_sekolah',
-            'tamat_belajar',
-            'no_ijazah',
-            'no_skhu',
+            'name',
+            'gender',
+            'birth_place',
+            'birth_date',
+            'religion',
+            'citizenship',
+            'fam_order',
+            'fam_count',
+            'fam_status',
+            'language',
+            'address',
+            'phone',
+            'live_with',
+            'residence_distance',
+            'blood_type',
+            'sick_history',
+            'height',
+            'weight',
+            'graduate_from',
+            'ijazah_year',
+            'ijazah_sd_no',
+            'skhu_no',
+            'move_from',
+            'receive_at_grade_id',
+            'date_received',
+            'hobby',
+            'leave_reason',
+            'finished_studying_at',
+            'ijazah_now_no',
+            'skhu_now_no',
         );
     }
     /**
@@ -90,12 +90,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('pages.students.table');
-    }
-
-    public function report()
-    {
-        return view('pages.students.report');
+        $students = Student::with('grade', 'receiveAtGrade')->paginate(request('perpage') ?? 10);
+        return view('pages.student.table', compact('students'));
     }
 
     /**
@@ -105,7 +101,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('pages.students.create');
+        $student = new Student;
+        return view('pages.student.create', compact('student'));
     }
 
     /**
@@ -116,7 +113,9 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateForm();
+        $student = Student::create($this->getForm());
+        return redirect(route('student.edit', $student->id))->with('success', 'Murid berhasil ditambah');
     }
 
     /**
@@ -127,7 +126,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return view('pages.student.detail', compact('student'));
     }
 
     /**
@@ -138,7 +137,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('pages.student.edit', compact('student'));
     }
 
     /**
@@ -150,7 +149,9 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $this->validateForm();
+        $student->update($this->getForm());
+        return back()->with('success', 'Murid berhasil diperbaharui');
     }
 
     /**
@@ -161,6 +162,8 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $success = redirect('student.index')->with('success', 'Murid dengan nis:'.$student->nis.' berhasil dihapus dari database');
+        $student->delete();
+        return $success;
     }
 }

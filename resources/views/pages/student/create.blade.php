@@ -17,22 +17,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <x-form :action="route('students.store')">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <div class="col-4">
-                                    <label>Nama</label>
-                                </div>
-                                <div class="col-8">
-                                    <x-input type="text" name="nama" placeholder="Masukkan Nama Siswa"></x-input>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6"></div>
-                    </div>
-
-                </x-form>
+                <x-student.student-form></x-student.student-form>
             </div>
         </div>
     </div>

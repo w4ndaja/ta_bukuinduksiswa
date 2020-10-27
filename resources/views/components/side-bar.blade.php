@@ -24,7 +24,10 @@
                 <a href="{{route('students.create')}}" aria-expanded="false">Tambah Siswa Baru </a>
             </li>
             <li class="side-nav-item">
-                <a href="{{route('students.report')}}" aria-expanded="false">Laporan Data Siswa</a>
+                <a href="{{route('grades.index')}}" aria-expanded="false">Tabel Data Kelas </a>
+            </li>
+            <li class="side-nav-item">
+                <a href="{{route('grades.create')}}" aria-expanded="false">Tambah Kelas Baru </a>
             </li>
         </ul>
     </li>
@@ -36,13 +39,10 @@
         </a>
         <ul class="side-nav-second-level" aria-expanded="false">
             <li class="side-nav-item">
-                <a href="#" aria-expanded="false">Tabel Data Guru </a>
+                <a href="{{route('teachers.index')}}" aria-expanded="false">Tabel Data Guru </a>
             </li>
             <li class="side-nav-item">
-                <a href="#" aria-expanded="false">Tambah Guru Baru </a>
-            </li>
-            <li class="side-nav-item">
-                <a href="#" aria-expanded="false">Laporan Data Guru</a>
+                <a href="{{route('teachers.create')}}" aria-expanded="false">Tambah Guru Baru </a>
             </li>
         </ul>
     </li>

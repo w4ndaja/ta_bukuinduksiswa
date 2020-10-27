@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GradeController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
+use App\Models\Grade;
 use Illuminate\Support\Facades\Route;
 
 
@@ -13,6 +16,8 @@ Route::middleware('auth')->group(function(){
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::resource('students', StudentController::class);
+    Route::resource('grades', GradeController::class);
+    Route::resource('teachers', TeacherController::class);
     Route::get('report/students', [StudentController::class, 'report'])->name('students.report');
 });
 

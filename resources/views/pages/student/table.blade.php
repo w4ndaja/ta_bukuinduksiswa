@@ -29,7 +29,6 @@
                     <table class="table table-sm table-bordered table-hover table-striped">
                         <thead>
                             <tr>
-                                <th class="text-nowrap">No</th>
                                 <th class="text-nowrap">Kelas</th>
                                 <th class="text-nowrap">NIS</th>
                                 <th class="text-nowrap">Nama Siswa</th>
@@ -65,41 +64,46 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($students as $key => $student)
                             <tr>
-                                <td class="text-nowrap position-sticky">1</td>
-                                <td class="text-nowrap">aksjd</td>
-                                <td class="text-nowrap">alksdj</td>
-                                <td class="text-nowrap">lksdg</td>
-                                <td class="text-nowrap">aosiureo</td>
-                                <td class="text-nowrap">123kj</td>
-                                <td class="text-nowrap">hhjn</td>
-                                <td class="text-nowrap">uybufbghni</td>
-                                <td class="text-nowrap">hmjhvdtr</td>
-                                <td class="text-nowrap">5788790</td>
-                                <td class="text-nowrap">ukj</td>
-                                <td class="text-nowrap">hftydbnkjn</td>
-                                <td class="text-nowrap">878</td>
-                                <td class="text-nowrap">fghbnjnkj</td>
-                                <td class="text-nowrap">hjdyfu ukh </td>
-                                <td class="text-nowrap">j iygf f </td>
-                                <td class="text-nowrap">uhukhkj7687 87 6</td>
-                                <td class="text-nowrap">hkjh jkh</td>
-                                <td class="text-nowrap">hjkjhkjh</td>
-                                <td class="text-nowrap">kjhkjhfdfd fggfg</td>
-                                <td class="text-nowrap">ukjkhkjuuit6756 765</td>
-                                <td class="text-nowrap">jhgjghj 65</td>
-                                <td class="text-nowrap">hkjhkjhj j765</td>
-                                <td class="text-nowrap">76hjgj g7576 66877</td>
-                                <td class="text-nowrap">jhkjhjk </td>
-                                <td class="text-nowrap">kjhk h</td>
-                                <td class="text-nowrap">jhkjhkjhjg ghjj</td>
-                                <td class="text-nowrap"> kjhkjhk kh</td>
-                                <td class="text-nowrap">kjhk </td>
-                                <td class="text-nowrap">kjhkjhjk</td>
-                                <td class="text-nowrap">kjhkjh</td>
-                                <td class="text-nowrap">jhkhj</td>
-                                <td class="text-nowrap">hkhkjhk</td>
+                                <td class="text-nowrap">{{$student->grade->code}} - {{$student->grade->name}}</td>
+                                <td class="text-nowrap">{{$student->nis}}</td>
+                                <td class="text-nowrap">{{$student->name}}</td>
+                                <td class="text-nowrap">{{$student->gender}}</td>
+                                <td class="text-nowrap">{{$student->birth_place}}</td>
+                                <td class="text-nowrap">{{$student->birth_date}}</td>
+                                <td class="text-nowrap">{{$student->religion}}</td>
+                                <td class="text-nowrap">{{$student->citizenship}}</td>
+                                <td class="text-nowrap">{{$student->fam_order}}</td>
+                                <td class="text-nowrap">{{$student->fam_count}}</td>
+                                <td class="text-nowrap">{{$student->fam_status}}</td>
+                                <td class="text-nowrap">{{$student->language}}</td>
+                                <td class="text-nowrap">{{$student->address}}</td>
+                                <td class="text-nowrap">{{$student->phone}}</td>
+                                <td class="text-nowrap">{{$student->live_with}}</td>
+                                <td class="text-nowrap">{{$student->residence_distance}}</td>
+                                <td class="text-nowrap">{{$student->blood_type}}</td>
+                                <td class="text-nowrap">{{$student->sick_history}}</td>
+                                <td class="text-nowrap">{{$student->height}}</td>
+                                <td class="text-nowrap">{{$student->weight}}</td>
+                                <td class="text-nowrap">{{$student->graduate_from}}</td>
+                                <td class="text-nowrap">{{$student->ijazah_year}}</td>
+                                <td class="text-nowrap">{{$student->ijazah_sd_no}}</td>
+                                <td class="text-nowrap">{{$student->skhu_no}}</td>
+                                <td class="text-nowrap">{{$student->move_from}}</td>
+                                <td class="text-nowrap">{{$student->receiveAtGrade->code}} - {{$student->receiveAtGrade->name}}</td>
+                                <td class="text-nowrap">{{$student->date_received}}</td>
+                                <td class="text-nowrap">{{$student->hobby}}</td>
+                                <td class="text-nowrap">{{$student->leave_reason}}</td>
+                                <td class="text-nowrap">{{$student->finished_studying_at}}</td>
+                                <td class="text-nowrap">{{$student->ijazah_now_no}}</td>
+                                <td class="text-nowrap">{{$student->skhu_now_no}}</td>
+                                <td class="text-nowrap d-flex flex-row">
+                                    <a href="{{route('students.edit', $student->id)}}" class="btn btn-info ml-1 btn-sm">Edit</a>
+                                    <a href="{{route('students.edit', $student->id)}}" class="btn btn-danger ml-1 btn-sm">Hapus</a>
+                                </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
