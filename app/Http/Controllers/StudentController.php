@@ -187,7 +187,7 @@ class StudentController extends Controller
             'out_reason' => 'required|string',
         ]);
         $student->dropOut()->create(['out_reason' => request()->out_reason]);
-        return redirect(route('students.index'))->with('success', 'Murid dengan nis:'.$student->nis.' berhasil dikeluarkan');
+        return redirect(route('students.moved'))->with('success', 'Murid dengan nis:'.$student->nis.' berhasil dikeluarkan');
     }
     public function dropIn(Student $student)
     {
