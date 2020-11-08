@@ -192,6 +192,6 @@ class StudentController extends Controller
     public function dropIn(Student $student)
     {
         $student->dropOut()->delete();
-        return redirect(route('students.index'))->with('success', 'Murid dengan nis:'.$student->nis.' berhasil dimasukkan kembali');
+        return redirect(route('students.update', $student->id))->with('success', 'Murid dengan nis:'.$student->nis.' berhasil dimasukkan kembali');
     }
 }
