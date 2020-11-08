@@ -18,7 +18,10 @@
         </a>
         <ul class="side-nav-second-level" aria-expanded="false">
             <li class="side-nav-item">
-                <a href="{{route('students.index')}}" aria-expanded="false">Tabel Data Siswa </a>
+                <a href="{{route('students.index')}}" aria-expanded="false">Tabel Data Siswa Aktif</a>
+            </li>
+            <li class="side-nav-item">
+                <a href="{{route('students.moved')}}" aria-expanded="false">Tabel Data Siswa Non Aktif</a>
             </li>
             <li class="side-nav-item">
                 <a href="{{route('students.create')}}" aria-expanded="false">Tambah Siswa Baru </a>

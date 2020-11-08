@@ -37,14 +37,14 @@
                                 <th class="text-nowrap">Agama</th>
                                 <th class="text-nowrap">Kewarganegaraan</th>
                                 <th class="text-nowrap">Anak Ke</th>
-                                <th class="text-nowrap">Jumlah Saudata</th>
+                                <th class="text-nowrap">Jumlah Bersaudara</th>
                                 <th class="text-nowrap">Status Kel</th>
                                 <th class="text-nowrap">Bahasa</th>
                                 <th class="text-nowrap">Alamat</th>
                                 <th class="text-nowrap">No Tel Siswa</th>
                                 <th class="text-nowrap">Tinggal Dengan</th>
                                 <th class="text-nowrap">Jarak Tmpt Tgl Dari Skh</th>
-                                <th class="text-nowrap">Gol Datah</th>
+                                <th class="text-nowrap">Golongan Datah</th>
                                 <th class="text-nowrap">Penyakit yg Pernah Diderita</th>
                                 <th class="text-nowrap">Tinggi Badan</th>
                                 <th class="text-nowrap">Berat Badan</th>
@@ -56,10 +56,11 @@
                                 <th class="text-nowrap">Diterima dikelas</th>
                                 <th class="text-nowrap">Tgl Diterima</th>
                                 <th class="text-nowrap">Hobi siswa</th>
-                                <th class="text-nowrap">Alasan keluar</th>
-                                <th class="text-nowrap">Tamat belajar</th>
+                                <th class="text-nowrap">Alasan Pindah</th>
+                                <th class="text-nowrap">Tahun Lulus</th>
                                 <th class="text-nowrap">No Ijazah</th>
                                 <th class="text-nowrap">No SKHU</th>
+                                <th class="text-nowrap">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -99,7 +100,8 @@
                                 <td class="text-nowrap">{{$student->skhu_now_no}}</td>
                                 <td class="text-nowrap d-flex flex-row">
                                     <a href="{{route('students.edit', $student->id)}}" class="btn btn-info ml-1 btn-sm">Edit</a>
-                                    <a href="{{route('students.confirm-delete', $student->id)}}" class="btn btn-danger ml-1 btn-sm">Hapus</a>
+                                    <a href="{{route('students.confirm-delete', $student->id)}}" class="btn btn-warning ml-1 btn-sm">Hapus</a>
+                                    <a href="{{route('students.confirm-drop-out', $student->id)}}" class="btn btn-danger ml-1 btn-sm">Drop Out</a>
                                 </td>
                             </tr>
                             @endforeach

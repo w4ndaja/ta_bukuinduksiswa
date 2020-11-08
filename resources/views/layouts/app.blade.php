@@ -48,7 +48,6 @@
                 <div class="container-fluid">
                     <x-alert name="success" type="success"></x-alert>
                     @yield('content')
-
                 </div> <!-- container -->
 
             </div> <!-- content -->

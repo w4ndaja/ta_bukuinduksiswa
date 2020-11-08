@@ -28,21 +28,15 @@ class StudentController extends Controller
             'live_with' => 'required',
             'residence_distance' => 'required',
             'blood_type' => 'required',
-            'sick_history' => 'required',
             'height' => 'required',
             'weight' => 'required',
             'graduate_from' => 'required',
             'ijazah_year' => 'required',
             'ijazah_sd_no' => 'required',
             'skhu_no' => 'required',
-            'move_from' => 'required',
             'receive_at_grade_id' => 'required',
             'date_received' => 'required',
             'hobby' => 'required',
-            'leave_reason' => 'required',
-            'finished_studying_at' => 'required',
-            'ijazah_now_no' => 'required',
-            'skhu_now_no' => 'required',
         ]);
     }
 
@@ -90,8 +84,13 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::with('grade', 'receiveAtGrade')->paginate(request('perpage') ?? 10);
+        $students = Student::doesntHave('dropOut')->with('grade', 'receiveAtGrade')->paginate(request('perpage') ?? 10);
         return view('pages.student.table', compact('students'));
+    }
+    public function moved()
+    {
+        $students = Student::has('dropOut')->with('grade', 'receiveAtGrade')->paginate(request('perpage') ?? 10);
+        return view('pages.student.moved', compact('students'));
     }
 
     /**
@@ -157,8 +156,16 @@ class StudentController extends Controller
     public function confirmDelete(Student $student)
     {
         $action = route('students.destroy', $student->id);
-        $message = "Apakah anda yakin ingin menghapus data siswa ".$student->nis."-".$student->name;
+        $message = "Apakah anda yakin ingin menghapus data siswa dengan nis = ".$student->nis.", nama = ".$student->name;
         return view('partials.confirm-delete', compact('action', 'message'));
+    }
+    public function confirmDropOut(Student $student)
+    {
+        return view('partials.confirm-drop-out', compact('student'));
+    }
+    public function confirmDropIn(Student $student)
+    {
+        return view('partials.confirm-drop-in', compact('student'));
     }
 
     /**
@@ -172,5 +179,19 @@ class StudentController extends Controller
         $success = redirect(route('students.index'))->with('success', 'Murid dengan nis:'.$student->nis.' berhasil dihapus dari database');
         $student->delete();
         return $success;
+    }
+
+    public function dropOut(Student $student)
+    {
+        request()->validate([
+            'out_reason' => 'required|string',
+        ]);
+        $student->dropOut()->create(['out_reason' => request()->out_reason]);
+        return redirect(route('students.index'))->with('success', 'Murid dengan nis:'.$student->nis.' berhasil dikeluarkan');
+    }
+    public function dropIn(Student $student)
+    {
+        $student->dropOut()->delete();
+        return redirect(route('students.index'))->with('success', 'Murid dengan nis:'.$student->nis.' berhasil dimasukkan kembali');
     }
 }

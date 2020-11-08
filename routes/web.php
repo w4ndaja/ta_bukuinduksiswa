@@ -17,7 +17,12 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::resource('students', StudentController::class);
+    Route::get('moved-students', [StudentController::class, 'moved'])->name('students.moved');
     Route::get('confirm-delete/students/{student}', [StudentController::class, 'confirmDelete'])->name('students.confirm-delete');
+    Route::get('confirm-drop-out/students/{student}', [StudentController::class, 'confirmDropOut'])->name('students.confirm-drop-out');
+    Route::get('confirm-drop-in/students/{student}', [StudentController::class, 'confirmDropIn'])->name('students.confirm-drop-in');
+    Route::delete('students/drop-out/{student}', [StudentController::class, 'dropOut'])->name('students.drop-out');
+    Route::delete('students/drop-in/{student}', [StudentController::class, 'dropIn'])->name('students.drop-in');
     Route::resource('grades', GradeController::class);
     Route::get('confirm-delete/grades/{grade}', [GradeController::class, 'confirmDelete'])->name('grades.confirm-delete');
     Route::resource('teachers', TeacherController::class);

@@ -9,6 +9,6 @@
 <script>
     setTimeout(() => {
         $('#alert-{{$id}}').slideUp()
-    }, 4000)
+    }, 4000);
 </script>
 @endif

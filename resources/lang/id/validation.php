@@ -178,6 +178,7 @@ return [
         'date_received' => 'tanggal diterima',
         'hobby' => 'hobby',
         'leave_reason' => 'alasan pindah',
+        'out_reason' => 'alasan keluar',
         'finished_studying_at' => 'lulus pada',
         'ijazah_now_no' => 'no ijazah sekarang',
         'skhu_now_no' => 'no skhu sekarang',

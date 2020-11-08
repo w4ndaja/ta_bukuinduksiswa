@@ -19,4 +19,9 @@ class Student extends Model
     {
         return $this->belongsTo(Grade::class, 'receive_at_grade_id');
     }
+
+    public function dropOut()
+    {
+        return $this->hasOne(DropOutStudent::class);
+    }
 }
