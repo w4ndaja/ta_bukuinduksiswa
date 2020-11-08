@@ -56,9 +56,8 @@
                     </table>
                 </div>
             </div>
-            <div class="card-footer d-flex justify-content-between">
-                <span class="text-info">Menampilkan 10 dari 100 data yang di filter</span>
-                <span class="text-info">Total 200 data</span>
+            <div class="card-footer">
+                {{$lessonValues->links()}}
             </div>
         </div>
     </div>

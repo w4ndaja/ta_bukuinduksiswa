@@ -109,6 +109,9 @@
                     </table>
                 </div>
             </div>
+            <div class="card-footer">
+                {{$students->links()}}
+            </div>
         </div>
     </div>
 </div>

@@ -14,7 +14,7 @@
             <div class="form-group row">
                 <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.nis')</label> </div>
                 <div class="col-md-8">
-                    <x-input type="number" name="nis" :placeholder="'Masukkan '.__('validation.attributes.nis')" :value="$student->nis"></x-input>
+                    <x-input type="number" name="nis" :placeholder="'Masukkan '.__('validation.attributes.nis')" :value="$student->nis" :autofocus="true"></x-input>
                 </div>
             </div>
         </div>
