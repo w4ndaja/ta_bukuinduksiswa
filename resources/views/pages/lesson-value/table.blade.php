@@ -40,12 +40,12 @@
                         <tbody>
                             @foreach($lessonValues as $lessonValue)
                             <tr>
-                                <td class="text-nowrap">{{$lessonValue->school_year}}</td>
-                                <td class="text-nowrap">{{$lessonValue->grade_id}}</td>
-                                <td class="text-nowrap">{{$lessonValue->nis}}</td>
-                                <td class="text-nowrap">{{$lessonValue->semester}}</td>
-                                <td class="text-nowrap">{{$lessonValue->subject_id}}</td>
-                                <td class="text-nowrap">{{$lessonValue->value}}</td>
+                                <td class="text-nowrap text-capitalize">{{$lessonValue->school_year}}</td>
+                                <td class="text-nowrap text-capitalize">{{$lessonValue->grade->code}} - {{$lessonValue->grade->name}}</td>
+                                <td class="text-nowrap text-capitalize">{{$lessonValue->nis}}</td>
+                                <td class="text-nowrap text-capitalize">{{$lessonValue->semester}}</td>
+                                <td class="text-nowrap text-capitalize">{{$lessonValue->subject->code}} - {{$lessonValue->subject->name}}</td>
+                                <td class="text-nowrap text-capitalize">{{$lessonValue->value}}</td>
                                 <td class="text-nowrap position-sticky d-flex flex-row">
                                     <a href="{{route('lesson-values.edit', $lessonValue->id)}}" class="btn btn-sm mr-1 btn-info">Edit</a>
                                     <a href="{{route('lesson-values.confirm-delete', $lessonValue->id)}}" class="btn btn-sm mr-1 btn-danger">Hapus</a>

@@ -93,7 +93,7 @@ class SubjectController extends Controller
     {
         $this->validateForm();
         $subject->update($this->getForm());
-        return back()->with('success', 'Mata Pelajaran berhasil diperbaharui');
+        return redirect(route('subjects.index'))->with('success', 'Mata Pelajaran berhasil diperbaharui');
     }
 
     public function confirmDelete(Subject $subject)

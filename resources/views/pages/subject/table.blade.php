@@ -28,10 +28,10 @@
                     <table class="table table-sm table-bordered table-hover table-striped">
                         <thead>
                             <tr>
-                                <th class="text-nowrap">@lang('validation.attributes.code')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.name')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.type')</th>
-                                <th class="text-nowrap">Aksi</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.code')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.name')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.type')</th>
+                                <th class="text-nowrap text-capitalize">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -49,10 +49,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-            <div class="card-footer d-flex justify-content-between">
-                <span class="text-info">Menampilkan 10 dari 100 data yang di filter</span>
-                <span class="text-info">Total 200 data</span>
             </div>
         </div>
     </div>

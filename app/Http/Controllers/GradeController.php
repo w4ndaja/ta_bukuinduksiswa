@@ -95,7 +95,7 @@ class GradeController extends Controller
     {
         $this->validateForm();
         $grade->update($this->getForm());
-        return back()->with('success', 'Kelas berhasil diperbaharui');
+        return redirect(route('grades.index'))->with('success', 'Kelas berhasil diperbaharui');
     }
 
     public function confirmDelete(Grade $grade)

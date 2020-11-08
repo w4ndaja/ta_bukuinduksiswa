@@ -9,4 +9,14 @@ class LessonValue extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function grade()
+    {
+        return $this->belongsTo(Grade::class);
+    }
+
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class);
+    }
 }

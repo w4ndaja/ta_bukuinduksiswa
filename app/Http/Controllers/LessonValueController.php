@@ -38,7 +38,7 @@ class LessonValueController extends Controller
      */
     public function index()
     {
-        $lessonValues = LessonValue::paginate(request('perpage') ?? 10);
+        $lessonValues = LessonValue::with('grade', 'subject')->paginate(request('perpage') ?? 10);
         return view('pages.lesson-value.table', compact('lessonValues'));
     }
 
@@ -99,7 +99,7 @@ class LessonValueController extends Controller
     {
         $this->validateForm();
         $lessonValue->update($this->getForm());
-        return back()->with('success', 'Nilai berhasil diperbaharui');
+        return redirect(route('lesson-values.index'))->with('success', 'Nilai berhasil diperbaharui');
     }
 
     public function confirmDelete(LessonValue $lessonValue)

@@ -9,4 +9,9 @@ class Grade extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function formTeacher()
+    {
+        return $this->belongsTo(Teacher::class);
+    }
 }

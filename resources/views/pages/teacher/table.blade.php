@@ -28,21 +28,21 @@
                     <table class="table table-sm table-bordered table-hover table-striped">
                         <thead>
                             <tr>
-                                <th class="text-nowrap">@lang('validation.attributes.code')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.name')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.birth_place')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.birth_date')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.nuptk')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.nip')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.position')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.level')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.gender')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.religion')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.address')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.phone')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.education')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.status')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.work_start_date')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.code')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.name')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.birth_place')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.birth_date')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.nuptk')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.nip')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.position')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.level')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.gender')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.religion')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.address')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.phone')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.education')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.status')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.work_start_date')</th>
                                 <th class="text-nowrap">Aksi</th>
                             </tr>
                         </thead>
@@ -73,10 +73,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-            <div class="card-footer d-flex justify-content-between">
-                <span class="text-info">Menampilkan 10 dari 100 data yang di filter</span>
-                <span class="text-info">Total 200 data</span>
             </div>
         </div>
     </div>

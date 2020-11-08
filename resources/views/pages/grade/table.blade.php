@@ -28,12 +28,12 @@
                     <table class="table table-sm table-bordered table-hover table-striped">
                         <thead>
                             <tr>
-                                <th class="text-nowrap">No</th>
-                                <th class="text-nowrap">@lang('validation.attributes.code')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.name')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.parallel')</th>
-                                <th class="text-nowrap">@lang('validation.attributes.form_teacher_id')</th>
-                                <th class="text-nowrap">Aksi</th>
+                                <th class="text-nowrap text-capitalize">No</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.code')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.name')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.parallel')</th>
+                                <th class="text-nowrap text-capitalize">@lang('validation.attributes.form_teacher_id')</th>
+                                <th class="text-nowrap text-capitalize">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,7 +43,7 @@
                                 <td class="text-wrap position-sticy">{{$grade->code}}</td>
                                 <td class="text-wrap position-sticy">{{$grade->name}}</td>
                                 <td class="text-wrap position-sticy">{{$grade->parallel}}</td>
-                                <td class="text-wrap position-sticy">{{$grade->form_teacher_id}}</td>
+                                <td class="text-wrap position-sticy">{{$grade->formTeacher->code}} - {{$grade->formTeacher->name}}</td>
                                 <td class="text-wrap position-sticy d-flex flex-row">
                                     <a href="{{route('grades.edit', $grade->id)}}" class="btn btn-sm mr-1 btn-info">Edit</a>
                                     <a href="{{route('grades.confirm-delete', $grade->id)}}" class="btn btn-sm mr-1 btn-danger">Hapus</a>

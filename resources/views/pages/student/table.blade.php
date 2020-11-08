@@ -13,7 +13,7 @@
                     <li class="breadcrumb-item active">Tabel Data Siswa</li>
                 </ol>
             </div>
-            <h4 class="page-title">Table Data Siswa</h4>
+            <h4 class="page-title text-success">Table Data Siswa Aktif</h4>
         </div>
     </div>
     <div class="col-12">
@@ -108,10 +108,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-            <div class="card-footer d-flex justify-content-between">
-                <span class="text-info">Menampilkan 10 dari 100 data yang di filter</span>
-                <span class="text-info">Total 200 data</span>
             </div>
         </div>
     </div>

@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class TeacherController extends Controller
 {
 
-    public function validateForm()
+    public function validateForm($id =false)
     {
         request()->validate([
-            'code' => 'required',
+            'code' => 'required|unique:teachers,code'.($id ? ','.$id : ''),
             'name' => 'required',
             'birth_place' => 'required',
             'birth_date' => 'required',
@@ -115,9 +115,9 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
-        $this->validateForm();
+        $this->validateForm($teacher->id);
         $teacher->update($this->getForm());
-        return back()->with('success', 'Guru berhasil diperbaharui');
+        return redirect(route('teachers.index'))->with('success', 'Guru berhasil diperbaharui');
     }
 
     public function confirmDelete(Teacher $teacher)

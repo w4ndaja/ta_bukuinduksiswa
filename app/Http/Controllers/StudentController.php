@@ -150,7 +150,7 @@ class StudentController extends Controller
     {
         $this->validateForm();
         $student->update($this->getForm());
-        return back()->with('success', 'Murid berhasil diperbaharui');
+        return redirect(route('students.index'))->with('success', 'Murid berhasil diperbaharui');
     }
 
     public function confirmDelete(Student $student)
@@ -159,12 +159,16 @@ class StudentController extends Controller
         $message = "Apakah anda yakin ingin menghapus data siswa dengan nis = ".$student->nis.", nama = ".$student->name;
         return view('partials.confirm-delete', compact('action', 'message'));
     }
+
     public function confirmDropOut(Student $student)
     {
+        if($student->dropOut) return back();
         return view('partials.confirm-drop-out', compact('student'));
     }
+
     public function confirmDropIn(Student $student)
     {
+        if(!$student->dropOut) return back();
         return view('partials.confirm-drop-in', compact('student'));
     }
 
