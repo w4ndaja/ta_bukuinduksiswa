@@ -72,7 +72,7 @@
                                 <td class="text-nowrap">{{$student->gender}}</td>
                                 <td class="text-nowrap">{{$student->birth_place}}</td>
                                 <td class="text-nowrap">{{$student->birth_date}}</td>
-                                <td class="text-nowrap">{{$student->religion}}</td>
+                                <td class="text-nowrap text-capitalize">{{$student->religion}}</td>
                                 <td class="text-nowrap">{{$student->citizenship}}</td>
                                 <td class="text-nowrap">{{$student->fam_order}}</td>
                                 <td class="text-nowrap">{{$student->fam_count}}</td>
