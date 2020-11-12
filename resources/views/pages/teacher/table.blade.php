@@ -43,30 +43,43 @@
                                 <th class="text-nowrap text-capitalize">@lang('validation.attributes.education')</th>
                                 <th class="text-nowrap text-capitalize">@lang('validation.attributes.status')</th>
                                 <th class="text-nowrap text-capitalize">@lang('validation.attributes.work_start_date')</th>
-                                <th class="text-nowrap">Aksi</th>
+                                <th class="text-nowrap position-sticky bg-light text-info" style="right:0">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($teachers as $teacher)
                             <tr>
-                                <td class="text-nowrap position-sticky">{{$teacher->code}}</td>
-                                <td class="text-nowrap position-sticky">{{$teacher->name}}</td>
-                                <td class="text-nowrap position-sticky">{{$teacher->birth_place}}</td>
-                                <td class="text-nowrap position-sticky">{{$teacher->birth_date}}</td>
-                                <td class="text-nowrap position-sticky">{{$teacher->nuptk}}</td>
-                                <td class="text-nowrap position-sticky">{{$teacher->nip}}</td>
-                                <td class="text-nowrap position-sticky">{{$teacher->position}}</td>
-                                <td class="text-nowrap position-sticky">{{$teacher->level}}</td>
-                                <td class="text-nowrap position-sticky">{{$teacher->gender}}</td>
-                                <td class="text-nowrap position-sticky">{{$teacher->religion}}</td>
-                                <td class="text-nowrap position-sticky">{{$teacher->address}}</td>
-                                <td class="text-nowrap position-sticky">{{$teacher->phone}}</td>
-                                <td class="text-nowrap position-sticky">{{$teacher->education}}</td>
-                                <td class="text-nowrap position-sticky">{{$teacher->status}}</td>
-                                <td class="text-nowrap position-sticky">{{$teacher->work_start_date}}</td>
-                                <td class="text-nowrap position-sticky d-flex flex-row">
-                                    <a href="{{route('teachers.edit', $teacher->id)}}" class="btn btn-sm mr-1 btn-info">Edit</a>
-                                    <a href="{{route('teachers.confirm-delete', $teacher->id)}}" class="btn btn-sm mr-1 btn-danger">Hapus</a>
+                                <td class="text-nowrap">{{$teacher->code}}</td>
+                                <td class="text-nowrap">{{$teacher->name}}</td>
+                                <td class="text-nowrap">{{$teacher->birth_place}}</td>
+                                <td class="text-nowrap">{{$teacher->birth_date}}</td>
+                                <td class="text-nowrap">{{$teacher->nuptk}}</td>
+                                <td class="text-nowrap">{{$teacher->nip}}</td>
+                                <td class="text-nowrap">{{$teacher->position}}</td>
+                                <td class="text-nowrap">{{$teacher->level}}</td>
+                                <td class="text-nowrap">{{$teacher->gender}}</td>
+                                <td class="text-nowrap">{{$teacher->religion}}</td>
+                                <td class="text-nowrap">{{$teacher->address}}</td>
+                                <td class="text-nowrap">{{$teacher->phone}}</td>
+                                <td class="text-nowrap">{{$teacher->education}}</td>
+                                <td class="text-nowrap">{{$teacher->status}}</td>
+                                <td class="text-nowrap">{{$teacher->work_start_date}}</td>
+                                <td class="text-nowrap position-sticky bg-light" style="right:0">
+                                    <div class="dropleft">
+                                        <a class="btn btn-secondary dropdown-toggle" href role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="uil-cog"></i>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a href="{{route('teachers.edit', $teacher->id)}}" class="dropdown-item text-info">
+                                                <i class="uil-edit text-lg h3 m-1"></i>
+                                                <span>Edit</span>
+                                            </a>
+                                            <a href="{{route('teachers.confirm-delete', $teacher->id)}}" class="dropdown-item text-danger">
+                                                <i class="uil-trash text-lg h3 m-1"></i>
+                                                <span>Hapus</span>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

@@ -60,7 +60,7 @@
                                 <th class="text-nowrap">Tahun Lulus</th>
                                 <th class="text-nowrap">No Ijazah</th>
                                 <th class="text-nowrap">No SKHU</th>
-                                <th class="text-nowrap">Aksi</th>
+                                <th class="text-nowrap position-sticky bg-light" style="right:0">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -98,10 +98,27 @@
                                 <td class="text-nowrap">{{$student->finished_studying_at}}</td>
                                 <td class="text-nowrap">{{$student->ijazah_now_no}}</td>
                                 <td class="text-nowrap">{{$student->skhu_now_no}}</td>
-                                <td class="text-nowrap d-flex flex-row">
-                                    <a href="{{route('students.edit', $student->id)}}" class="btn btn-info ml-1 btn-sm">Edit</a>
-                                    <a href="{{route('students.confirm-delete', $student->id)}}" class="btn btn-warning ml-1 btn-sm">Hapus</a>
-                                    <a href="{{route('students.confirm-drop-out', $student->id)}}" class="btn btn-danger ml-1 btn-sm">Drop Out</a>
+                                <td class="position-sticky bg-light" style="right:0">
+                                    <div class="dropleft">
+                                        <a class="btn btn-secondary dropdown-toggle" href role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="uil-cog"></i>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a href="{{route('students.edit', $student->id)}}" class="dropdown-item text-info">
+                                                <i class="uil-edit text-lg h3 m-1"></i>
+                                                <span>Edit</span>
+                                            </a>
+                                            <a href="{{route('students.confirm-delete', $student->id)}}" class="dropdown-item text-danger">
+                                                <i class="uil-trash text-lg h3 m-1"></i>
+                                                <span>Hapus</span>
+                                            </a>
+                                            <a href="{{route('students.confirm-drop-out', $student->id)}}" class="dropdown-item text-warning">
+                                                <i class="uil-sign-out-alt text-lg h3 m-1"></i>
+                                                <span>Drop Out</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
                                 </td>
                             </tr>
                             @endforeach

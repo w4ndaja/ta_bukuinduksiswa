@@ -34,7 +34,7 @@
                                 <th class="text-nowrap text-capitalize">@lang('validation.attributes.semester')</th>
                                 <th class="text-nowrap text-capitalize">@lang('validation.attributes.subject_id')</th>
                                 <th class="text-nowrap text-capitalize">@lang('validation.attributes.value')</th>
-                                <th class="text-nowrap">Aksi</th>
+                                <th class="text-nowrap position-sticky bg-light" style="right:0">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,9 +46,23 @@
                                 <td class="text-nowrap text-capitalize">{{$lessonValue->semester}}</td>
                                 <td class="text-nowrap text-capitalize">{{$lessonValue->subject->code}} - {{$lessonValue->subject->name}}</td>
                                 <td class="text-nowrap text-capitalize">{{$lessonValue->value}}</td>
-                                <td class="text-nowrap position-sticky d-flex flex-row">
-                                    <a href="{{route('lesson-values.edit', $lessonValue->id)}}" class="btn btn-sm mr-1 btn-info">Edit</a>
-                                    <a href="{{route('lesson-values.confirm-delete', $lessonValue->id)}}" class="btn btn-sm mr-1 btn-danger">Hapus</a>
+                                <td class="text-nowrap position-sticky bg-light" style="right:0">
+                                    <div class="dropleft">
+                                        <a class="btn btn-secondary dropdown-toggle" href role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="uil-cog"></i>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a href="{{route('lesson-values.edit', $lessonValue->id)}}" class="dropdown-item text-info">
+                                                <i class="uil-edit text-lg h3 m-1"></i>
+                                                <span>Edit</span>
+                                            </a>
+                                            <a href="{{route('lesson-values.confirm-delete', $lessonValue->id)}}" class="dropdown-item text-danger">
+                                                <i class="uil-trash text-lg h3 m-1"></i>
+                                                <span>Hapus</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
                                 </td>
                             </tr>
                             @endforeach

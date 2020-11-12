@@ -39,12 +39,12 @@
                         <tbody>
                             @foreach($grades as $key => $grade)
                             <tr>
-                                <td class="text-nowrap position-sticky">{{$key + 1}}</td>
-                                <td class="text-wrap position-sticy">{{$grade->code}}</td>
-                                <td class="text-wrap position-sticy">{{$grade->name}}</td>
-                                <td class="text-wrap position-sticy">{{$grade->parallel}}</td>
-                                <td class="text-wrap position-sticy">{{$grade->formTeacher->code}} - {{$grade->formTeacher->name}}</td>
-                                <td class="text-wrap position-sticy d-flex flex-row">
+                                <td class="text-nowrap>{{$key + 1}}</td>
+                                <td class="text-wrap ">{{$grade->code}}</td>
+                                <td class="text-wrap ">{{$grade->name}}</td>
+                                <td class="text-wrap ">{{$grade->parallel}}</td>
+                                <td class="text-wrap ">{{$grade->formTeacher->code}} - {{$grade->formTeacher->name}}</td>
+                                <td class="text-wrap  d-flex flex-row">
                                     <a href="{{route('grades.edit', $grade->id)}}" class="btn btn-sm mr-1 btn-info">Edit</a>
                                     <a href="{{route('grades.confirm-delete', $grade->id)}}" class="btn btn-sm mr-1 btn-danger">Hapus</a>
                                 </td>
