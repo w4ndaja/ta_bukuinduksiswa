@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\SchoolIdentity;
-use Illuminate\Http\Request;
 
 class SchoolIdentityController extends Controller
 {
@@ -33,25 +32,25 @@ class SchoolIdentityController extends Controller
     {
         return view('pages.school-identity.index');
     }
-    public function store(Request $request)
+    public function store()
     {
         $this->validateForm();
         SchoolIdentity::updateOrCreate([],$this->getForm());
         return redirect()->route('school-identity.index')->with('success', 'Identitas Sekolah berhasil diperbaharui');
     }
-    public function show($id)
+    public function show()
     {
         //
     }
-    public function edit($id)
+    public function edit()
     {
         //
     }
-    public function update(Request $request, $id)
+    public function update()
     {
         //
     }
-    public function destroy($id)
+    public function destroy()
     {
         //
     }
