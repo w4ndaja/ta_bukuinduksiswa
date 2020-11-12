@@ -35,7 +35,7 @@ class SchoolIdentityController extends Controller
     }
     public function store(Request $request)
     {
-        $this->validateForm();
+        // $this->validateForm();
         SchoolIdentity::updateOrCreate([],$this->getForm());
         return redirect()->route('school-identity.index')->with('success', 'Identitas Sekolah berhasil diperbaharui');
     }
