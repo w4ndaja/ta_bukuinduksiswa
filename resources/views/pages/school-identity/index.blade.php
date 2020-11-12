@@ -12,7 +12,7 @@
                     <li class="breadcrumb-item active">Identitas Sekolah</li>
                 </ol>
             </div>
-            <h4 class="page-title">Identitas Sekolah</h4>
+            <h4 class="page-title"><span class="text-white bg-info rounded px-3 py-1">Identitas Sekolah</span></h4>
         </div>
     </div>
     <div class="col-12">

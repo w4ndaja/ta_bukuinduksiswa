@@ -13,7 +13,9 @@
                     <li class="breadcrumb-item active">Tabel Data Siswa</li>
                 </ol>
             </div>
-            <h4 class="page-title text-success">Table Data Siswa Aktif</h4>
+            <h4 class="page-title">
+                <span class="bg-info py-1 px-3 rounded-sm text-light">Table Data Siswa Aktif</span>
+            </h4>
         </div>
     </div>
     <div class="col-12">

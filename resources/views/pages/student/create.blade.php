@@ -11,7 +11,11 @@
                     <li class="breadcrumb-item active">Tambah Siswa Baru</li>
                 </ol>
             </div>
-            <h4 class="page-title">Tambah Siswa Baru</h4>
+            <h4 class="page-title">
+                <span class="bg-info text-light rounded px-3 py-1">
+                    Tambah Siswa Baru
+                </span>
+            </h4>
         </div>
     </div>
     <div class="col-12">

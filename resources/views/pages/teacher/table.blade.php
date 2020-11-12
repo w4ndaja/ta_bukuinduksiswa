@@ -13,7 +13,9 @@
                     <li class="breadcrumb-item active">Tabel Data Guru</li>
                 </ol>
             </div>
-            <h4 class="page-title">Table Data Guru</h4>
+            <h4 class="page-title">
+                <span class="bg-info text-light px-3 py-1 rounded">Table Data Guru</span>
+            </h4>
         </div>
     </div>
     <div class="col-12">

@@ -13,7 +13,9 @@
                     <li class="breadcrumb-item active">Tabel Data Kelas</li>
                 </ol>
             </div>
-            <h4 class="page-title">Table Data Kelas</h4>
+            <h4 class="page-title">
+                <span class="bg-info text-light px-3 py-1 rounded">Table Data Kelas</span>
+            </h4>
         </div>
     </div>
     <div class="col-12">

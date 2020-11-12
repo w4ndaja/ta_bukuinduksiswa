@@ -11,7 +11,9 @@
                     <li class="breadcrumb-item active">Tambah Nilai Baru</li>
                 </ol>
             </div>
-            <h4 class="page-title">Tambah Nilai Baru</h4>
+            <h4 class="page-title">
+                <span class="text-light bg-info rounded px-3 py-1">Tambah Nilai Baru</span>
+            </h4>
         </div>
     </div>
     <div class="col-12">

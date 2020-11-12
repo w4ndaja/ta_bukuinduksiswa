@@ -13,7 +13,7 @@
                     <li class="breadcrumb-item active">Tabel Mata Pelajaran</li>
                 </ol>
             </div>
-            <h4 class="page-title">Table Mata Pelajaran</h4>
+            <h4 class="page-title"><span class="text-light bg-info rounded px-3 py-1">Table Mata Pelajaran</span></h4>
         </div>
     </div>
     <div class="col-12">

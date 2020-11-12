@@ -13,7 +13,9 @@
                     <li class="breadcrumb-item active">Tabel Data Siswa Keluar</li>
                 </ol>
             </div>
-            <h4 class="page-title text-danger">Table Data Siswa Keluar</h4>
+            <h4 class="page-title">
+                <span class="bg-danger text-light rounded py-1 px-3">Table Data Siswa Keluar</span>
+            </h4>
         </div>
     </div>
     <div class="col-12">
