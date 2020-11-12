@@ -4,6 +4,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\LessonValueController;
+use App\Http\Controllers\SchoolIdentity;
+use App\Http\Controllers\SchoolIdentityController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
@@ -31,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::get('confirm-delete/lesson-values/{lesson-value}', [LessonValueController::class, 'confirmDelete'])->name('lesson-values.confirm-delete');
     Route::resource('subjects', SubjectController::class);
     Route::get('confirm-delete/subjects/{subject}', [SubjectController::class, 'confirmDelete'])->name('subjects.confirm-delete');
+    Route::resource('school-identity', SchoolIdentityController::class);
 });
 
 Route::middleware('guest')->group(function () {

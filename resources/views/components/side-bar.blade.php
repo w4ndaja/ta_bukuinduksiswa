@@ -85,5 +85,11 @@
             </li> --}}
         </ul>
     </li>
-
+    <li class="side-nav-item">
+        <a href="{{route('school-identity.index')}}" class="side-nav-link">
+            <i class="uil-location-point"></i>
+            {{-- <span class="badge badge-success float-right">4</span> --}}
+            <span> Identitas Sekolah </span>
+        </a>
+    </li>
 </ul>

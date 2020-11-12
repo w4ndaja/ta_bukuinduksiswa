@@ -8,7 +8,7 @@
 </div>
 <script>
     setTimeout(() => {
-        $('#alert-{{$id}}').slideUp()
-    }, 4000);
+        $('#alert-{{$id}}').slideUp();
+    }, 2000);
 </script>
 @endif
