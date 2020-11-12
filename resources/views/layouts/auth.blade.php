@@ -18,7 +18,7 @@
         <!-- end page -->
 
         <footer class="footer footer-alt">
-            {{now()->format('Y')}} © SMP TUNAS HARAPAN 
+            {{now()->format('Y')}} © {{config('school-identity.name')}}
         </footer>
 
         <!-- bundle -->
