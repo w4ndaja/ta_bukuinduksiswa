@@ -1,6 +1,6 @@
 <x-form :action="route('school-identity.store')">
     <div class="form-group row">
-        <label class="col-lg-3">Nama Madrasah</label>
+        <label class="col-lg-3">Nama Sekolah</label>
         <div class="col-lg-9">
             <x-input name="name" :placeholder="'Masukkan '.__('validation.attributes.name')" :value="$schoolIdentity->name" />
         </div>
