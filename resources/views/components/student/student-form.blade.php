@@ -1,32 +1,32 @@
 <ul class="nav nav-tabs mb-3">
     <li class="nav-item">
-        <a href="#identity" data-toggle="tab" aria-expanded="false" class="nav-link active">
+        <a href="#identity" data-toggle="tab" class="nav-link {{session('parent') ? '' : 'active'}}">
             <i class="mdi mdi-home-variant d-md-none d-block"></i>
             <span class="d-none d-md-block">Identitas</span>
         </a>
     </li>
     <li class="nav-item">
-        <a href="#dad" data-toggle="tab" aria-expanded="true" class="nav-link">
-            <i class="mdi mdi-account-circle d-md-none d-block"></i>
+        <a href="#dad" data-toggle="tab" class="nav-link {{session('father')  ?'active' : ''}} {{$method == 'patch' ? '' : 'disabled bg-light text-muted'}}">
+            <i class="mdi mdi-human-male d-md-none d-block"></i>
             <span class="d-none d-md-block">Ayah</span>
         </a>
     </li>
     <li class="nav-item">
-        <a href="#mom" data-toggle="tab" aria-expanded="true" class="nav-link">
-            <i class="mdi mdi-account-circle d-md-none d-block"></i>
+        <a href="#mom" data-toggle="tab" class="nav-link {{session('mother') ? 'active' : ''}} {{$method == 'patch' ? '' : 'disabled bg-light text-muted'}}">
+            <i class="mdi mdi-human-female d-md-none d-block"></i>
             <span class="d-none d-md-block">Ibu</span>
         </a>
     </li>
     <li class="nav-item">
-        <a href="#guardian" data-toggle="tab" aria-expanded="true" class="nav-link">
-            <i class="mdi mdi-account-circle d-md-none d-block"></i>
+        <a href="#guardian" data-toggle="tab" class="nav-link {{session('guardian') ? 'active' : ''}} {{$method == 'patch' ? '' : 'disabled bg-light text-muted'}}">
+            <i class="mdi mdi-human-female-girl d-md-none d-block"></i>
             <span class="d-none d-md-block">Wali</span>
         </a>
     </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane show active" id="identity">
+    <div class="tab-pane {{session('parent') ? '' : 'show active'}}" id="identity">
         <x-form :action="$action" :method="$method">
             <div class="row">
                 <div class="col-md-6">
@@ -297,13 +297,247 @@
             </div>
         </x-form>
     </div>
-    <div class="tab-pane" id="dad">
-        Ayah
+    <div class="tab-pane {{session('father') ? 'show active' : ''}}" id="dad">
+        <x-form :action="route('fathers.update', $student->id ?? 0)" method="patch">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.name')</label> </div>
+                        <div class="col-md-8">
+                            <x-input name="name" :placeholder="'Masukkan '.__('validation.attributes.name')" :value="$father->name"></x-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.birth_place')</label> </div>
+                        <div class="col-md-8">
+                            <x-input name="birth_place" :placeholder="'Masukkan '.__('validation.attributes.birth_place')" :value="$father->birth_place"></x-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.birth_date')</label> </div>
+                        <div class="col-md-8">
+                            <x-input type="date" name="birth_date" :placeholder="'Masukkan '.__('validation.attributes.birth_date')" :value="$father->birth_date"></x-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.religion')</label> </div>
+                        <div class="col-md-8">
+                            <x-select name="religion" :placeholder="'Masukkan '.__('validation.attributes.religion')" :value="$father->religion" :options="$religions"></x-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.citizenship')</label> </div>
+                        <div class="col-md-8">
+                            <x-select name="citizenship" :placeholder="'Masukkan '.__('validation.attributes.citizenship')" :value="$father->citizenship" :options="$cityzenships"></x-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.education')</label> </div>
+                        <div class="col-md-8">
+                            <x-select name="education" :placeholder="'Masukkan '.__('validation.attributes.education')" :value="$father->education" :options="$educations"></x-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.work')</label> </div>
+                        <div class="col-md-8">
+                            <x-input name="work" :placeholder="'Masukkan '.__('validation.attributes.work')" :value="$father->work"></x-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.monthly_income')</label> </div>
+                        <div class="col-md-8">
+                            <x-input type="number" name="monthly_income" :placeholder="'Masukkan '.__('validation.attributes.monthly_income')" :value="$father->monthly_income"></x-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.address')</label> </div>
+                        <div class="col-md-8">
+                            <x-textarea name="address" :placeholder="'Masukkan '.__('validation.attributes.address')" :value="$father->address"></x-textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.phone')</label> </div>
+                        <div class="col-md-8">
+                            <x-input name="phone" :placeholder="'Masukkan '.__('validation.attributes.phone')" :value="$father->phone"></x-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.died_at')</label> </div>
+                        <div class="col-md-8">
+                            <x-input type="date" name="died_at" :placeholder="'Masukkan '.__('validation.attributes.died_at')" :value="$father->died_at"></x-input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group d-flex justify-content-end pt-3 mb-0">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </x-form>
     </div>
-    <div class="tab-pane" id="mom">
-        Ibu
+    <div class="tab-pane {{session('mother') ? 'show active' : ''}}" id="mom">
+        <x-form :action="route('mothers.update', $student->id ?? 0)" method="patch">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.name')</label> </div>
+                        <div class="col-md-8">
+                            <x-input name="name" :placeholder="'Masukkan '.__('validation.attributes.name')" :value="$mother->name"></x-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.birth_place')</label> </div>
+                        <div class="col-md-8">
+                            <x-input name="birth_place" :placeholder="'Masukkan '.__('validation.attributes.birth_place')" :value="$mother->birth_place"></x-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.birth_date')</label> </div>
+                        <div class="col-md-8">
+                            <x-input type="date" name="birth_date" :placeholder="'Masukkan '.__('validation.attributes.birth_date')" :value="$mother->birth_date"></x-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.religion')</label> </div>
+                        <div class="col-md-8">
+                            <x-select name="religion" :placeholder="'Masukkan '.__('validation.attributes.religion')" :value="$mother->religion" :options="$religions"></x-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.citizenship')</label> </div>
+                        <div class="col-md-8">
+                            <x-select name="citizenship" :placeholder="'Masukkan '.__('validation.attributes.citizenship')" :value="$mother->citizenship" :options="$cityzenships"></x-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.education')</label> </div>
+                        <div class="col-md-8">
+                            <x-select name="education" :placeholder="'Masukkan '.__('validation.attributes.education')" :value="$mother->education" :options="$educations"></x-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.work')</label> </div>
+                        <div class="col-md-8">
+                            <x-input name="work" :placeholder="'Masukkan '.__('validation.attributes.work')" :value="$mother->work"></x-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.monthly_income')</label> </div>
+                        <div class="col-md-8">
+                            <x-input type="number" name="monthly_income" :placeholder="'Masukkan '.__('validation.attributes.monthly_income')" :value="$mother->monthly_income"></x-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.address')</label> </div>
+                        <div class="col-md-8">
+                            <x-textarea name="address" :placeholder="'Masukkan '.__('validation.attributes.address')" :value="$mother->address"></x-textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.phone')</label> </div>
+                        <div class="col-md-8">
+                            <x-input name="phone" :placeholder="'Masukkan '.__('validation.attributes.phone')" :value="$mother->phone"></x-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.died_at')</label> </div>
+                        <div class="col-md-8">
+                            <x-input type="date" name="died_at" :placeholder="'Masukkan '.__('validation.attributes.died_at')" :value="$mother->died_at"></x-input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group d-flex justify-content-end pt-3 mb-0">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </x-form>
     </div>
-    <div class="tab-pane" id="mom">
-        Wali
+    <div class="tab-pane {{session('guardian') ? 'show active' : ''}}" id="guardian">
+        <x-form :action="route('guardians.update', $student->id ?? 0)" method="patch">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.name')</label> </div>
+                        <div class="col-md-8">
+                            <x-input name="name" :placeholder="'Masukkan '.__('validation.attributes.name')" :value="$guardian->name"></x-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.birth_place')</label> </div>
+                        <div class="col-md-8">
+                            <x-input name="birth_place" :placeholder="'Masukkan '.__('validation.attributes.birth_place')" :value="$guardian->birth_place"></x-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.birth_date')</label> </div>
+                        <div class="col-md-8">
+                            <x-input type="date" name="birth_date" :placeholder="'Masukkan '.__('validation.attributes.birth_date')" :value="$guardian->birth_date"></x-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.religion')</label> </div>
+                        <div class="col-md-8">
+                            <x-select name="religion" :placeholder="'Masukkan '.__('validation.attributes.religion')" :value="$guardian->religion" :options="$religions"></x-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-4"> <label class="text-capitalize">@lang('validation.attributes.citizenship')</label> </div>
+                        <div class="col-md-8">
+                            <x-select name="citizenship" :placeholder="'Masukkan '.__('validation.attributes.citizenship')" :value="$guardian->citizenship" :options="$cityzenships"></x-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group d-flex justify-content-end pt-3 mb-0">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </x-form>
     </div>
 </div>

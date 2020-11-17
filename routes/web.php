@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FatherController;
 use App\Http\Controllers\GradeController;
+use App\Http\Controllers\GuardianController;
 use App\Http\Controllers\LessonValueController;
+use App\Http\Controllers\MotherController;
 use App\Http\Controllers\SchoolIdentity;
 use App\Http\Controllers\SchoolIdentityController;
 use App\Http\Controllers\StudentController;
@@ -19,6 +22,9 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::resource('students', StudentController::class);
+    Route::patch('fathers/{student}', [FatherController::class, 'update'])->name('fathers.update');
+    Route::patch('mothers/{student}', [MotherController::class, 'update'])->name('mothers.update');
+    Route::patch('guardians/{student}', [GuardianController::class, 'update'])->name('guardians.update');
     Route::get('moved-students', [StudentController::class, 'moved'])->name('students.moved');
     Route::get('confirm-delete/students/{student}', [StudentController::class, 'confirmDelete'])->name('students.confirm-delete');
     Route::get('confirm-drop-out/students/{student}', [StudentController::class, 'confirmDropOut'])->name('students.confirm-drop-out');

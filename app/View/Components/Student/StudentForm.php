@@ -20,11 +20,28 @@ class StudentForm extends Component
     public $grades;
     public $religions;
     public $cityzenships;
+    public $educations;
+    public $father;
+    public $mother;
+    public $guardian;
     public function __construct($action = null, $method = "post", $student = null)
     {
         $this->action = $action ?? route("students.store");
         $this->method = $method;
         $this->student = $student ?? new Student;
+        $this->father = $this->student->father()->firstOrNew();
+        $this->mother = $this->student->mother()->firstOrNew();
+        $this->guardian = $this->student->guardian()->firstOrNew();
+        $this->educations = [
+            ['value' => 'Tidak Sekolah', 'label' => 'Tidak Sekolah'],
+            ['value' => 'SD', 'label' => 'SD'],
+            ['value' => 'SMP', 'label' => 'SMP'],
+            ['value' => 'SMA', 'label' => 'SMA'],
+            ['value' => 'D3', 'label' => 'D3'],
+            ['value' => 'S1', 'label' => 'S1'],
+            ['value' => 'S2', 'label' => 'S2'],
+            ['value' => 'S3', 'label' => 'S3'],
+        ];
         $this->grades = Grade::all()->map(function ($q) {
             return [
                 'label' => $q->code . ' - ' . $q->name,

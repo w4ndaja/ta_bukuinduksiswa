@@ -84,12 +84,12 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::doesntHave('dropOut')->with('grade', 'receiveAtGrade')->paginate(request('perpage') ?? 10);
+        $students = Student::doesntHave('dropOut')->with('grade', 'receiveAtGrade', 'father', 'mother', 'guardian')->paginate(request('perpage') ?? 10);
         return view('pages.student.table', compact('students'));
     }
     public function moved()
     {
-        $students = Student::has('dropOut')->with('grade', 'receiveAtGrade')->paginate(request('perpage') ?? 10);
+        $students = Student::has('dropOut')->with('grade', 'receiveAtGrade', 'father', 'mother', 'guardian')->paginate(request('perpage') ?? 10);
         return view('pages.student.moved', compact('students'));
     }
 
@@ -114,7 +114,10 @@ class StudentController extends Controller
     {
         $this->validateForm();
         $student = Student::create($this->getForm());
-        return redirect(route('students.create'))->with('success', 'Murid berhasil ditambah');
+        request()->session()->flash('parent');
+        request()->session()->flash('father');
+        return redirect(route('students.edit', $student->id))->with('success', 'Murid berhasil ditambah, lanjutkan mengisi form orang tua');
+        // return back()->with('success', 'Murid berhasil ditambah');
     }
 
     /**
@@ -150,7 +153,7 @@ class StudentController extends Controller
     {
         $this->validateForm();
         $student->update($this->getForm());
-        return redirect(route('students.index'))->with('success', 'Murid berhasil diperbaharui');
+        return back()->with('success', 'Murid berhasil diperbaharui');
     }
 
     public function confirmDelete(Student $student)

@@ -9,6 +9,7 @@ class Student extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $with = ['father', 'mother', 'guardian'];
 
     public function grade()
     {
@@ -23,5 +24,20 @@ class Student extends Model
     public function dropOut()
     {
         return $this->hasOne(DropOutStudent::class);
+    }
+
+    public function father()
+    {
+        return $this->hasOne(Father::class);
+    }
+
+    public function mother()
+    {
+        return $this->hasOne(Mother::class);
+    }
+
+    public function guardian()
+    {
+        return $this->hasOne(Guardian::class);
     }
 }
