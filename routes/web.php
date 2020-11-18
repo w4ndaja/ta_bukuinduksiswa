@@ -25,6 +25,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('fathers/{student}', [FatherController::class, 'update'])->name('fathers.update');
     Route::patch('mothers/{student}', [MotherController::class, 'update'])->name('mothers.update');
     Route::patch('guardians/{student}', [GuardianController::class, 'update'])->name('guardians.update');
+    Route::get('students/{student}', [StudentController::class, 'print'])->name('students.print');
+    Route::get('students/{student}/lesson-result', [StudentController::class, 'lessonResultPrint'])->name('students.lesson-result-print');
     Route::get('moved-students', [StudentController::class, 'moved'])->name('students.moved');
     Route::get('confirm-delete/students/{student}', [StudentController::class, 'confirmDelete'])->name('students.confirm-delete');
     Route::get('confirm-drop-out/students/{student}', [StudentController::class, 'confirmDropOut'])->name('students.confirm-drop-out');

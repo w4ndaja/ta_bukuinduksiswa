@@ -9,7 +9,7 @@ class Student extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    protected $with = ['father', 'mother', 'guardian'];
+    protected $with = ['father', 'mother', 'guardian', 'lessonResults'];
 
     public function grade()
     {
@@ -39,5 +39,10 @@ class Student extends Model
     public function guardian()
     {
         return $this->hasOne(Guardian::class);
+    }
+
+    public function lessonResults()
+    {
+        return $this->hasMany(LessonValue::class, 'nis', 'nis');
     }
 }

@@ -110,6 +110,14 @@
                                                 <i class="uil-edit text-lg h3 m-1"></i>
                                                 <span>Edit</span>
                                             </a>
+                                            <a href="{{route('students.print', $student->id)}}" class="dropdown-item text-info">
+                                                <i class="uil-print text-lg h3 m-1"></i>
+                                                <span>Print Biodata</span>
+                                            </a>
+                                            <a href="{{route('students.lesson-result-print', $student->id)}}" class="dropdown-item text-info">
+                                                <i class="uil-print text-lg h3 m-1"></i>
+                                                <span>Print Nilai</span>
+                                            </a>
                                             <a href="{{route('students.confirm-delete', $student->id)}}" class="dropdown-item text-danger">
                                                 <i class="uil-trash text-lg h3 m-1"></i>
                                                 <span>Hapus</span>

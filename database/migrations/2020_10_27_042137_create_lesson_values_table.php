@@ -17,7 +17,7 @@ class CreateLessonValuesTable extends Migration
             $table->id();
             $table->year('school_year');
             $table->foreignId('grade_id');
-            $table->string('nis');
+            $table->foreignId('nis');
             $table->integer('semester');
             $table->foreignId('subject_id');
             $table->double('value');

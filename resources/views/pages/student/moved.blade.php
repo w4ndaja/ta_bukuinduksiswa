@@ -45,6 +45,8 @@
                                 <td class="text-nowrap">{{$student->dropOut->out_reason}}</td>
                                 <td class="text-nowrap d-flex flex-row">
                                     <a href="{{route('students.confirm-drop-in', $student->id)}}" class="btn btn-success ml-1 btn-sm">Drop In</a>
+                                    <a href="{{route('students.print', $student->id)}}" class="btn btn-info ml-1 btn-sm">PRINT DATA</a>
+                                    <a href="{{route('students.lesson-result-print', $student->id)}}" class="btn btn-info ml-1 btn-sm">PRINT NILAI</a>
                                 </td>
                             </tr>
                             @endforeach

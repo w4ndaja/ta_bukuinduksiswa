@@ -156,6 +156,16 @@ class StudentController extends Controller
         return back()->with('success', 'Murid berhasil diperbaharui');
     }
 
+    public function print(Student $student)
+    {
+        return view('pages.student.print', compact('student'));
+    }
+
+    public function lessonResultPrint(Student $student)
+    {
+        return view('pages.student.lesson-result-print', compact('student'));
+    }
+
     public function confirmDelete(Student $student)
     {
         $action = route('students.destroy', $student->id);

@@ -9,6 +9,7 @@ class LessonValue extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $with = ['subject'];
 
     public function grade()
     {
@@ -17,6 +18,6 @@ class LessonValue extends Model
 
     public function subject()
     {
-        return $this->belongsTo(Subject::class);
+    return $this->belongsTo(Subject::class);
     }
 }

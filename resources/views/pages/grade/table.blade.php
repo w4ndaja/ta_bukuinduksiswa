@@ -41,8 +41,8 @@
                         <tbody>
                             @foreach($grades as $key => $grade)
                             <tr>
-                                <td class="text-nowrap>{{$key + 1}}</td>
-                                <td class="text-wrap ">{{$grade->code}}</td>
+                                <td class="text-nowrap">{{$key + 1}}</td>
+                                <td class="text-wrap">{{$grade->code}}</td>
                                 <td class="text-wrap ">{{$grade->name}}</td>
                                 <td class="text-wrap ">{{$grade->parallel}}</td>
                                 <td class="text-wrap ">{{$grade->formTeacher->code}} - {{$grade->formTeacher->name}}</td>
